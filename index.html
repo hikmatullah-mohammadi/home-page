@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      main {
+        width: 100%;
+        height: 100vh;
+        background-image: url(images/home-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .clock {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        margin-top: 45vh;
+        text-shadow: 2px 2px 5px red;
+      }
+      #time {
+        font-family: serif;
+        font-size: 100px;
+      }
+      #date {
+        font-size: 32px;
+      }
+
+      #quote {
+        padding: 5px 8px;
+        color: white;
+        margin-top: 50px;
+        font-family: cursive;
+        box-shadow: 0 0 10px 10px gold;
+        animation: 1s quote infinite;
+      }
+
+      @keyframes quote {
+        to {
+          box-shadow: 0 0 50px 10px blue;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #time {
+          font-size: 70px;
+        }
+        #date {
+          font-size: 25px;
+        }
+        .clock {
+          margin-top: 35vh;
+        }
+      }
+      @media (max-width: 480px) {
+        #time {
+          font-size: 50px;
+        }
+        #date {
+          font-style: 20px;
+          margin-top: 20px;
+        }
+        .clock {
+          margin-top: 20vh;
+        }
+        #quote {
+          margin-top: 20vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="clock">
+        <div id="time"></div>
+        <div id="date"></div>
+      </section>
+      <section>
+        <div id="quote">
+          Remember! <br />Whatever you do makes a difference.
+        </div>
+      </section>
+    </main>
+    <script>
+      var time_elem = document.getElementById("time");
+      var dat_elem = document.getElementById("date");
+      let updat_time = function () {
+        time_elem.innerHTML = new Date().toLocaleTimeString();
+        dat_elem.innerHTML = new Date().toDateString();
+      };
+      setInterval(updat_time, 100);
+    </script>
+  </body>
+</html>
